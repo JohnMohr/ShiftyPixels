@@ -13,7 +13,7 @@ html {
     flex: 1 0 auto;
   }
 
-  header, main, footer {
+  /* header, main, footer {
     padding-left: 300px;
   }
 
@@ -21,4 +21,4 @@ html {
     header, main, footer {
       padding-left: 0;
     }
-  }
+  } */
