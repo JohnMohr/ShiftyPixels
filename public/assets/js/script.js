@@ -10,5 +10,5 @@ document.addEventListener('DOMContentLoaded', function() {
 //    const collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
 
 $(document).ready(function(){
-  $('materialbox').materialbox();
+  $('materialboxed').materialbox();
 });
