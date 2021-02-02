@@ -8,3 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
 //    const collapsibleElem = document.querySelector('.collapsible');
 //    const collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+$(document).ready(function(){
+  $('materialbox').materialbox();
+});
