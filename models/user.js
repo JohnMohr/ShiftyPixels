@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
   
     User.associate = function (models) {
       // add associations here
-      User.hasMany(models.Review);
+      User.hasMany(models.post);
     };
   
     User.beforeCreate(function (user) {

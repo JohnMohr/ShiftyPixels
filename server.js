@@ -3,7 +3,9 @@ const express = require('express');
 const routes = require('./controllers/controller');
 const app = express();
 const PORT = process.env.PORT || 3001;
-const session = require('express-session');
+// const hbs = exphb.create({ helpers });
+// const session = require('express-session');
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models')
 import { createClient } from 'pexels';
 // All requests made with the client will be authenticated
