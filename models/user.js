@@ -1,11 +1,44 @@
-module.exports = function(sequelize, DataTypes) {
-    var user = sequelize.define("user", {
-      username: DataTypes.STRING,
-      location: DataTypes.STRING,
-      age: DataTypes.INTEGER,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
+const bcrypt = require('bcrypt');
+
+module.exports = function (sequelize, DataTypes) {
+  var User = sequelize.define('User', {
+      username: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        unique: true,
+        allowNull: false
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [30]
+        }
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [15]
+        }
+      },
+      location: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: [15]
+        }
+      }
     });
-    return user;
-  };
   
+    User.associate = function (models) {
+      // add associations here
+      User.hasMany(models.Review);
+    };
+  
+    User.beforeCreate(function (user) {
+      user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+    });
+  
+    return User;
+  };
