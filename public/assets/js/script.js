@@ -30,7 +30,7 @@ $(document).ready(function(){
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Authorization", api_key);
       },
-      url:"https://api.pexels.com/v1/search?query="+search+"&per_page=12&page=1",
+      url:"https://api.pexels.com/v1/search?query=" + search + "&per_page=15&page=1",
       success: function (data) {
         console.log(data)
         data.photos.forEach(photo => {

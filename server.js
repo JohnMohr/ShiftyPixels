@@ -4,12 +4,12 @@ const routes = require('./controllers/controller');
 const app = express();
 const PORT = process.env.PORT || 3001;
 // const hbs = exphb.create({ helpers });
-// const session = require('express-session');
+const session = require('express-session');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models')
-import { createClient } from 'pexels';
+
 // All requests made with the client will be authenticated
-const client = createClient('563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617');
+// const client = createClient('563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617');
 
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const hbs = exphb.create({ helpers });
@@ -32,6 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 	next();
 // });
 // app.use(routes);
+
+// import { createClient } from 'pexels';
 
 app.get("/",function(req,res){
 	res.sendFile(path.join(__dirname, "index.html"))

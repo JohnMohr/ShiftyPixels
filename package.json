@@ -8,7 +8,7 @@
     "start": "node server.js"
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/JohnMohr/ShiftyPixels.git"
   },
   "author": "",
