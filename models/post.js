@@ -28,6 +28,8 @@
 // 			modelName: 'post'
 // 		}
 
+// const { post } = require("jquery");
+
 // 	)
 // 	return Post;
 // };
@@ -45,7 +47,7 @@ module.exports = function (sequelize, DataTypes) {
 
 	Post.img_url = function (models) {
 		// add associations here
-		Post.belongsTo(models.user);
+		post.belongsTo(models.user);
 		
 	};
 
