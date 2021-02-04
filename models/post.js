@@ -29,5 +29,25 @@ module.exports = function (sequelize, DataTypes) {
 		}
 
 	)
+	return Post;
 };
-return Post;
+
+// module.exports = function (sequelize, DataTypes) {
+// 	var Post = sequelize.define('post', {
+// 		img_url: {
+// 			type: DataTypes.STRING,
+// 			allowNull: false,
+// 			validate: {
+// 				isUrl: true
+// 			}
+// 		}
+// 	});
+
+// 	Review.associate = function (models) {
+// 		// add associations here
+// 		post.belongsTo(models.user);
+		
+// 	};
+
+// 	return Post;
+// };
