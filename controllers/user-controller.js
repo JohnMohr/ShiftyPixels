@@ -57,8 +57,9 @@ router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/')
 })
+//landing page
 router.get("/",function(req,res){
-	res.sendFile(path.join(__dirname, "index.html"))
+	res.render("index");
 })
 router.get("/signup",function(req,res){
 	res.sendFile(path.join(__dirname, "../public/signup.html"))
