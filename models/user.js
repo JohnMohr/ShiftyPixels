@@ -11,23 +11,23 @@ module.exports = function (sequelize, DataTypes) {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          len: [30]
-        }
+        // validate: {
+        //   len: [30]
+        // }
       },
       password: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          len: [15]
-        }
+        // validate: {
+        //   len: [15]
+        // }
       },
       location: {
         type: DataTypes.STRING,
         allowNull: false,
-        validate: {
-          len: [15]
-        }
+        // validate: {
+        //   len: [15]
+        // }
       }
     });
   

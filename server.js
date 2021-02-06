@@ -1,12 +1,14 @@
 const path = require('path');
 const express = require('express');
-const routes = require('./controllers/controller');
+const passport = require("./config/passport");
+const routes = require('./controllers/user-controller');
 const app = express();
 const PORT = process.env.PORT || 3001;
 // const hbs = exphb.create({ helpers });
 const session = require('express-session');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models')
+
 
 // All requests made with the client will be authenticated
 // const client = createClient('563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617');
@@ -21,8 +23,11 @@ const db = require('./models')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// app.use(session(sess));
+
 // app.engine('handlebars', hbs.engine);
 // app.set('view engine', 'handlebars');
 // app.use(express.static('public'));
@@ -31,12 +36,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 	res.locals.success = req.flash('success');
 // 	next();
 // });
-// app.use(routes);
+app.use(routes);
 
 // import { createClient } from 'pexels';
 
 app.get("/",function(req,res){
-	res.sendFile(path.join(__dirname, "index.html"))
+	res.sendFile(path.join(__dirname, "./public/index.html"))
 })
 app.get("/signup",function(req,res){
 	res.sendFile(path.join(__dirname, "./public/signup.html"))
