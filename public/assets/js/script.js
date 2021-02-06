@@ -1,18 +1,32 @@
+//   MATERIALIZE
+//Materialize Auto Initialize
 M.AutoInit();
-
-document.addEventListener('DOMContentLoaded', function() {
-    const elems = document.querySelectorAll('.sidenav');
-    // const instances = M.Sidenav.init(elems, options);
-  });
-
-  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-//    const collapsibleElem = document.querySelector('.collapsible');
-//    const collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
-
+//picture pop
 $(document).ready(function(){
   $('materialboxed').materialbox();
 });
 
+//  SIDENAV
+document.addEventListener('DOMContentLoaded', function() {
+    const elems = document.querySelectorAll('.sidenav');
+    const instances = M.Sidenav.init(elems, options);
+  });
+  // UNCOMMENT FOR DROPDOWN MENUS ON SIDENAV
+//    const collapsibleElem = document.querySelector('.collapsible');
+//    const collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+//  HANDLEBARS
+app.set("view engine", "hbs");
+app.engine('hbs', exphbs({
+  extname: 'hbs',
+  defaultLayout: 'main',
+  layoutsDir: __dirname + 'views/layouts',
+  partialsDir: __dirname + 'views/partials',
+
+}));
+
+//  PEXEL
+//Pexel API
 $(document).ready(function(){
   var api_key = "563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617"
   var image = ''
@@ -49,3 +63,4 @@ $(document).ready(function(){
   }
 
 })
+
