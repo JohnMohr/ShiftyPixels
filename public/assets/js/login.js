@@ -1,28 +1,36 @@
 // if all login fields are filled out, make POST request to validate user
-async function loginFormHandler(event) {
-	event.preventDefault();
+document.addEventListener("DOMContentLoaded", (e) => {
+	document.querySelector("#enter").addEventListener("click", () => {
 
-	const username = document.querySelector('#username-login').value.trim();
-	const password = document.querySelector('#password-login').value.trim();
 
-	if (username && password) {
-		const response = await fetch('/api/users/login', {
-			method  : 'post',
-			body    : JSON.stringify({
-				username,
-				password
-			}),
-			headers : { 'Content-Type': 'application/json' }
-		});
+		e.preventDefault();
 
-		// check the response status
-		if (response.ok) {
-			document.location.replace('/dashboard');
-		} else {
-			document.location.replace('/login');
-			return;
+		const email = document.querySelector('#email-login').value.trim();
+		const password = document.querySelector('#password-login').value.trim();
+
+		if (email && password) {
+			let userdata = {
+				email:email,
+				password: password
+			}
+			$.post("/login", userData).then(() => {
+				console.log("success!")
+
+			}).catch(() => {
+				console.log("error")
+			}
+			)
+
 		}
-	}
-}
 
-document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
+	// check the response status
+	// if (response.ok) {
+	// 	document.location.replace('/dashboard');
+	// } else {
+	// 	document.location.replace('/login');
+	// 	return;
+	// }
+
+	
+})
+});

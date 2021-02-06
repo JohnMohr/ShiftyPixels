@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const bcrypt = require("bcrypt");
+const path = require('path');
 
 router.post("/signup", (req, res) => {
+    console.log(req.body)
     db.User.create({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        email: req.body.email,
+        location: req.body.location
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -16,7 +20,7 @@ router.post("/signup", (req, res) => {
 router.post("/login", (req, res) => {
     db.User.findOne({
         where: {
-            username: req.body.username
+            email: req.body.email
         }
     }).then(userData => {
         if (!userData) {
@@ -52,6 +56,24 @@ router.get("/secretclub", (req, res) => {
 router.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/')
+})
+router.get("/",function(req,res){
+	res.sendFile(path.join(__dirname, "index.html"))
+})
+router.get("/signup",function(req,res){
+	res.sendFile(path.join(__dirname, "../public/signup.html"))
+})
+router.get("/community",function(req,res){
+	res.sendFile(path.join(__dirname, "../public/community.html"))
+})
+router.get("/local",function(req,res){
+	res.sendFile(path.join(__dirname, "../public/local.html"))
+})
+router.get("/user",function(req,res){
+	res.sendFile(path.join(__dirname, "../public/user.html"))
+})
+router.get("/settings",function(req,res){
+	res.sendFile(path.join(__dirname, "../public/settings.html"))
 })
 
 

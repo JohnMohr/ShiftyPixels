@@ -1,10 +1,27 @@
+document.addEventListener("DOMContentLoaded",(e)=>
+{
 M.AutoInit();
+let submitEl = document.querySelector(".submit")
+submitEl.addEventListener("click",(e)=>
+{
+    e.preventDefault()
+    let userData = {
+        username: document.querySelector("#username-signup").value.trim(),
+        email: document.querySelector("#email-signup").value.trim(),
+        password: document.querySelector("#password-signup").value.trim(),
+        location: document.querySelector("#medium").value.trim(),
+    }
+    if (!userData.username || !userData.password || !userData.email || !userData.location) {
+        return;
+    }
+    console.log(userData)
+    $.post("/signup",userData).then(()=>{
+        console.log("success!")
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const elems = document.querySelectorAll('.sidenav');
-//     const instances = M.Sidenav.init(elems, options);
-//   });
+    }).catch(()=>{
+        console.log("error")
+    }
+    )
 
-//   // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
-//    const collapsibleElem = document.querySelector('.collapsible');
-//    const collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+})
+});
