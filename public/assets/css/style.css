@@ -9,16 +9,16 @@ html {
     height: 100%;
 }
 
-  main {
+main {
     flex: 1 0 auto;
   }
 
-  header, main, footer {
+.sb-main {
     padding-left: 300px;
   }
 
-  @media only screen and (max-width : 992px) {
-    header, main, footer {
+@media only screen and (max-width : 992px) {
+    main, .sb-main {
       padding-left: 0;
     }
-  }
+  };

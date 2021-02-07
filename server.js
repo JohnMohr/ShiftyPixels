@@ -5,9 +5,7 @@ const routes = require('./controllers/user-controller');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const expressHandlebars = require(`express-handlebars`);
-// const hbs = exphb.create({ helpers });
 const session = require('express-session');
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models')
 
 
@@ -17,7 +15,7 @@ const db = require('./models')
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const hbs = exphb.create({ helpers });
 // const helpers = require('./utils/helpers');
-// const exphb = require('express-handlebars');
+// const exphbs = require('express-handlebars');
 // const sequelize = require('./config-backup/connection');
 
 
@@ -44,7 +42,6 @@ require(`./controllers/user-controller.js`)(app, db.sequelize);
 
 
 // import { createClient } from 'pexels';
-
 
 
 db.sequelize.sync({ force: false }).then(() => {
