@@ -1,10 +1,11 @@
 //   MATERIALIZE
 //Materialize Auto Initialize
-M.AutoInit();
+// M.AutoInit();
 //picture pop
 $(document).ready(function(){
   $('materialboxed').materialbox();
-});
+  M.AutoInit();
+
 
 //  SIDENAV
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,18 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
 //    const collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
 
 //  HANDLEBARS
-app.set("view engine", "hbs");
-app.engine('hbs', exphbs({
-  extname: 'hbs',
-  defaultLayout: 'main',
-  layoutsDir: __dirname + 'views/layouts',
-  partialsDir: __dirname + 'views/partials',
+// app.set("view engine", "hbs");
+// app.engine('hbs', exphbs({
+//   extname: 'hbs',
+//   defaultLayout: 'main',
+//   layoutsDir: __dirname + 'views/layouts',
+//   partialsDir: __dirname + 'views/partials',
 
-}));
+// }));
 
 //  PEXEL
 //Pexel API
-$(document).ready(function(){
+
   var api_key = "563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617"
   var image = ''
 
