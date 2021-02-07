@@ -1,4 +1,6 @@
 // if all login fields are filled out, make POST request to validate user
+const localPageView = window.location
+
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.querySelector("#enter").addEventListener("click", () => {
 
@@ -9,28 +11,30 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		const password = document.querySelector('#password-login').value.trim();
 
 		if (email && password) {
-			let userdata = {
-				email:email,
+			let userData = {
+				email: email,
 				password: password
 			}
-			$.post("/login", userData).then(() => {
-				console.log("success!")
+			window.location.replace("./community.html");
+			return false;
+			// $.post("/login", userData).then(() => {
+			// 	console.log("success!")
 
-			}).catch(() => {
-				console.log("error")
-			}
-			)
+			// }).catch(() => {
+			// 	console.log("error")
+			// }
+			// )
 
 		}
 
-	// check the response status
-	// if (response.ok) {
-	// 	document.location.replace('/dashboard');
-	// } else {
-	// 	document.location.replace('/login');
-	// 	return;
-	// }
+		// check the response status
+		// if (response.ok) {
+		// 	document.location.replace('/dashboard');
+		// } else {
+		// 	document.location.replace('/login');
+		// 	return;
+		// }
 
-	
-})
+
+	})
 });

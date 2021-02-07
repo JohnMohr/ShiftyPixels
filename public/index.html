@@ -27,25 +27,35 @@
       <div class="divider"></div>
       <div class="row">
         <div class="col s6 center-align">
-          <form>
-            <p id=email-login>Email:
-              <input type="text" name="username" size="15" maxlength="30" />
+          <div class="form-group">
+            <label for="email-login">Email address</label>
+            <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp" name="email"
+              required>
+
+          </div>
+          <!-- <form>
+            <p id= email-login>Email:
+              <input type="email" name="email" size="15" maxlength="30" />
             </p>
-          </form>
+          </form> -->
         </div>
         <div class="col s6 center-align">
-          <form>
-            <p id=password-login>Password:
+          <div class="form-group">
+            <label for="password-login">Password</label>
+            <input type="password" class="form-control" id="password-login" name="password" required>
+          </div>
+          <!-- <form>
+            <p id= password-login>Password:
               <input type="password" name="password" size="15" maxlength="30" />
             </p>
-          </form>
+          </form> -->
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col s12 m3 l5"></div>
       <div class="col s6 m3 l1">
-        <a href="/signup" class="waves-effect waves-light btn"><i class="material-icons left" >camera_front</i>SIGN
+        <a href="/signup" class="waves-effect waves-light btn"><i class="material-icons left">camera_front</i>SIGN
           UP</a>
       </div>
       <div class="col s6 m3 l2">
