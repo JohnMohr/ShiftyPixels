@@ -1,62 +1,32 @@
-<ul id="slide-out" class="sidenav sidenav-fixed">
-        <li><a href="user.html">UrPiXels</a></li>
-        <li><a href="local.html">Local</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="settings.html">Settings</a></li>
-      </ul>
+<div>
+  {{> sidenav }}
+</div>
 
-      <div class="container">
-          {{>header}}
-      </div>
-      <div class="container">
-          <div class="row">
-          <div class="col s12">
-            <a class="center"><h5>Image Search:</h5></a>
-          </div>
-          <div class="col s12">
-            <form id="form">
-              <div class="form-group">
-                <input type="text" class="form-control" id="search">
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-danger" value="Search">
-              </div>
-            </form>
-            <div class="row">
-              <div class="col s12">
-                <div id="images"></div>
-              </div>
-            </div>
-          </div>
+<div class="container">
+  {{> header }}
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <a class="center">
+        <h5>Image Search:</h5>
+      </a>
+    </div>
+    <div class="col s12">
+      <form id="form">
+        <div class="form-group">
+          <input type="text" class="form-control" id="search">
         </div>
-        <h1 class="center-align">Community Gallery</h1>
-        <div class="row">
-          <div class="col s12 m6 l4">
-            <img src="./assets/img/community/cenaempanada.jpg"alt="community photo"class="responsive-img card materialboxed">
-          </div>
-          <div class="col s12 m6 l4">
-            <img src="./assets/img/community/commcatfish.png"alt="community photo"class="responsive-img card materialboxed">
-          </div>
-          <div class="col s12 m6 l4">
-            <img src="./assets/img/community/commcatfish2.png"alt="community photo"class="responsive-img card materialboxed">
-          </div>
-          <div class="col s12 m6 l4">
-            <img src="./assets/img/community/commcatfish3.png"alt="community photo"class="responsive-img card materialboxed">
-          </div>
-          <div class="col s12 m6 l4">
-            <img src="./assets/img/community/commotterup.jpg"alt="community photo"class="responsive-img card materialboxed">
-          </div>
-          <div class="col s12 m6 l4">
-            <img src="./assets/img/community/commcatfish4.png"alt="community photo"class="responsive-img card materialboxed">
-          </div>
-          <div class="col s12 m6 l4">
-            <img src="./assets/img/community/commotterup2.jpeg"alt="community photo"class="responsive-img card materialboxed">
-          </div>
-          <div class="col s12 m6 l4">
-            <img src="./assets/img/community/"alt="community photo"class="responsive-img card materialboxed">
-          </div>
-          <div class="divider"></div>
-
+        <div class="form-group">
+          <input type="submit" class="btn btn-danger" value="Search">
+        </div>
+      </form>
+      <div class="row">
+        <div class="col s12">
+          <div id="images"></div>
         </div>
       </div>
-      </div>
+    </div>
+  </div>
+  {{> commgall }}
+</div>
