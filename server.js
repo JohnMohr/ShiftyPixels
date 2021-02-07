@@ -4,6 +4,7 @@ const passport = require("./config/passport");
 const routes = require('./controllers/user-controller');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const expressHandlebars = require(`express-handlebars`);
 // const hbs = exphb.create({ helpers });
 const session = require('express-session');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -22,15 +23,18 @@ const db = require('./models')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+// app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.engine(`handlebars`, expressHandlebars({ defaultLayout: `main` }));
+app.set(`view engine`, `handlebars`);
 
 
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
-// app.use(express.static('public'));
+
+
 // app.use((req, res, next) => {
 // 	res.locals.error = req.flash('error');
 // 	res.locals.success = req.flash('success');

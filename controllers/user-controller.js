@@ -62,19 +62,19 @@ router.get("/",function(req,res){
 	res.render("index");
 })
 router.get("/signup",function(req,res){
-	res.sendFile(path.join(__dirname, "../public/signup.html"))
+	res.render("signup")
 })
 router.get("/community",function(req,res){
-	res.sendFile(path.join(__dirname, "../public/community.html"))
+	res.render("community")
 })
 router.get("/local",function(req,res){
-	res.sendFile(path.join(__dirname, "../public/local.html"))
+	res.render("local")
 })
 router.get("/user",function(req,res){
-	res.sendFile(path.join(__dirname, "../public/user.html"))
+	res.render("user")
 })
 router.get("/settings",function(req,res){
-	res.sendFile(path.join(__dirname, "../public/settings.html"))
+	res.render("settings")
 })
 
 
