@@ -40,28 +40,12 @@ app.set(`view engine`, `handlebars`);
 // 	res.locals.success = req.flash('success');
 // 	next();
 // });
-app.use(routes);
+require(`./controllers/user-controller.js`)(app, db.sequelize);
+
 
 // import { createClient } from 'pexels';
 
-app.get("/",function(req,res){
-	res.sendFile(path.join(__dirname, "./public/index.html"))
-})
-app.get("/signup",function(req,res){
-	res.sendFile(path.join(__dirname, "./public/signup.html"))
-})
-app.get("/community",function(req,res){
-	res.sendFile(path.join(__dirname, "./public/community.html"))
-})
-app.get("/local",function(req,res){
-	res.sendFile(path.join(__dirname, "./public/local.html"))
-})
-app.get("/user",function(req,res){
-	res.sendFile(path.join(__dirname, "./public/user.html"))
-})
-app.get("/settings",function(req,res){
-	res.sendFile(path.join(__dirname, "./public/settings.html"))
-})
+
 
 db.sequelize.sync({ force: false }).then(() => {
 	app.listen(PORT, () => console.log(`Now listening on PORT ${PORT}`));

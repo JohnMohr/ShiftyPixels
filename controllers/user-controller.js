@@ -1,10 +1,14 @@
 const express = require('express');
-const router = express.Router();
+// const app = express.app();
 const db = require('../models');
 const bcrypt = require("bcrypt");
 const path = require('path');
+const isAuthenticated = require(`../config/middleware/isAuthenticated`);
+const passport = require(`../config/passport`);
 
-router.post("/signup", (req, res) => {
+module.exports =  
+(app,  sequelize) => {
+app.post("/signup", (req, res) => {
     console.log(req.body)
     db.User.create({
         username: req.body.username,
@@ -17,35 +21,39 @@ router.post("/signup", (req, res) => {
         res.status(500).json(err);
     })
 })
-router.post("/login", (req, res) => {
-    db.User.findOne({
-        where: {
-            email: req.body.email
-        }
-    }).then(userData => {
-        if (!userData) {
-            req.session.destroy();
-            res.status(404).send("no such user")
-        } else {
-            if (bcrypt.compareSync(req.body.password, userData.password)) {
-                req.session.user = {
-                    id: userData.id,
-                    username: userData.username
-                }
-                res.json(userData);
-            } else {
-                req.session.destroy();
-                res.status(401).send("wrong password bro")
-            }
-        }
-    })
+
+app.post("/login",passport.authenticate(`local`), (req, res) => {
+    const user = { user: req.user };
+    console.log(user)
+    res.render("user")
+    // db.User.findOne({
+    //     where: {
+    //         email: req.body.email
+    //     }
+    // }).then(userData => {
+    //     if (!userData) {
+    //         req.session.destroy();
+    //         res.status(404).send("no such user")
+    //     } else {
+    //         if (bcrypt.compareSync(req.body.password, userData.password)) {
+    //             req.session.user = {
+    //                 id: userData.id,
+    //                 username: userData.username
+    //             }
+    //             res.json(userData);
+    //         } else {
+    //             req.session.destroy();
+    //             res.status(401).send("wrong password bro")
+    //         }
+    //     }
+    // })
 })
 
-router.get("/readsessions", (req, res) => {
+app.get("/readsessions", (req, res) => {
     res.json(req.session)
 })
 
-router.get("/secretclub", (req, res) => {
+app.get("/secretclub", (req, res) => {
     if (req.session.user) {
         res.send(`welcome to the club, ${req.session.user.username}!`)
     } else {
@@ -53,29 +61,31 @@ router.get("/secretclub", (req, res) => {
     }
 })
 
-router.get('/logout', (req, res) => {
+
+    app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/')
 })
 //landing page
-router.get("/",function(req,res){
+app.get("/",function(req,res){
 	res.render("index");
 })
-router.get("/signup",function(req,res){
+app.get("/signup",function(req,res){
 	res.render("signup")
 })
-router.get("/community",function(req,res){
+app.get("/community",function(req,res){
 	res.render("community")
 })
-router.get("/local",function(req,res){
+app.get("/local",function(req,res){
 	res.render("local")
 })
-router.get("/user",function(req,res){
+app.get("/user",isAuthenticated,function(req,res){
 	res.render("user")
 })
-router.get("/settings",function(req,res){
+app.get("/settings",function(req,res){
 	res.render("settings")
 })
+}
 
 
-module.exports = router;
+// module.exports = app;

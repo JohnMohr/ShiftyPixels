@@ -15,15 +15,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
 				email: email,
 				password: password
 			}
-			window.location.replace("./community.html");
-			return false;
-			// $.post("/login", userData).then(() => {
-			// 	console.log("success!")
+			
+			$.post("/login", userData).then(() => {
+				console.log("success!")
+				window.location.replace(`/user`);
 
-			// }).catch(() => {
-			// 	console.log("error")
-			// }
-			// )
+			}).catch((err) => {
+				console.log(err)
+			}
+			)
 
 		}
 
