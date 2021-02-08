@@ -1,28 +1,40 @@
 // if all login fields are filled out, make POST request to validate user
-async function loginFormHandler(event) {
-	event.preventDefault();
+const localPageView = window.location
 
-	const username = document.querySelector('#username-login').value.trim();
-	const password = document.querySelector('#password-login').value.trim();
+document.addEventListener("DOMContentLoaded", (e) => {
+	document.querySelector("#enter").addEventListener("click", () => {
 
-	if (username && password) {
-		const response = await fetch('/api/users/login', {
-			method  : 'post',
-			body    : JSON.stringify({
-				username,
-				password
-			}),
-			headers : { 'Content-Type': 'application/json' }
-		});
+
+		e.preventDefault();
+
+		const email = document.querySelector('#email-login').value.trim();
+		const password = document.querySelector('#password-login').value.trim();
+
+		if (email && password) {
+			let userData = {
+				email: email,
+				password: password
+			}
+			
+			$.post("/login", userData).then(() => {
+				console.log("success!")
+				window.location.replace(`/user`);
+
+			}).catch((err) => {
+				console.log(err)
+			}
+			)
+
+		}
 
 		// check the response status
-		if (response.ok) {
-			document.location.replace('/dashboard');
-		} else {
-			document.location.replace('/login');
-			return;
-		}
-	}
-}
+		// if (response.ok) {
+		// 	document.location.replace('/dashboard');
+		// } else {
+		// 	document.location.replace('/login');
+		// 	return;
+		// }
 
-document.querySelector('#login-form').addEventListener('submit', loginFormHandler);
+
+	})
+});
