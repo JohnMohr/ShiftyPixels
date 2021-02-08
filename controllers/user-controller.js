@@ -62,9 +62,9 @@ app.get("/secretclub", (req, res) => {
 })
 
 
-    app.get('/logout', (req, res) => {
-    req.session.destroy();
-    res.redirect('/')
+app.get('/logout', (req, res) => {
+req.session.destroy();
+res.redirect('/')
 })
 //landing page
 app.get("/",function(req,res){
