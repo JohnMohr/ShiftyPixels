@@ -13,7 +13,7 @@ main {
     flex: 1 0 auto;
   }
 
-.sb-main, .sb-footer {
+#sb-main, #sb-footer {
     padding-left: 300px;
   }
 
