@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const passport = require("./config/passport");
+
 const routes = require('./controllers/user-controller');
 const app = express();
 const PORT = process.env.PORT || 3001;
