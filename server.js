@@ -38,7 +38,7 @@ app.set(`view engine`, `handlebars`);
 // 	res.locals.success = req.flash('success');
 // 	next();
 // });
-require(`./controllers/user-controller.js`)(app, db.sequelize);
+require(`../controllers/user-controller.js`)(app, db.sequelize);
 
 
 // import { createClient } from 'pexels';
