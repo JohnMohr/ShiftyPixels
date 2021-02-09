@@ -1,6 +1,6 @@
 //   MATERIALIZE
 //Materialize Auto Initialize
-// M.AutoInit();
+M.AutoInit();
 //picture pop
 $(document).ready(function(){
   $('materialboxed').materialbox();
@@ -16,21 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //    const collapsibleElem = document.querySelector('.collapsible');
 //    const collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
 
-//  HANDLEBARS
-// app.set("view engine", "hbs");
-// app.engine('hbs', exphbs({
-//   extname: 'hbs',
-//   defaultLayout: 'main',
-//   layoutsDir: __dirname + 'views/layouts',
-//   partialsDir: __dirname + 'views/partials',
-
-// }));
-
-//  PEXEL
-//Pexel API
-
-  var api_key = "563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617"
-  var image = ''
 
   $("#form").submit(function (event) {
     event.preventDefault()
