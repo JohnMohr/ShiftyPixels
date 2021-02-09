@@ -1,0 +1,32 @@
+ 
+
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h4>Upload an Image</h4>
+      <div class="form-group">
+        <label for="title">Caption</label>
+        <input type="text" class="form-control" id="title" name="title">
+      </div>
+      <div class="form-group">
+        <label for="work-img">JPG or PDF only</label>
+        <br>
+      
+
+        <form class="mt-4" action="/upload" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="file" name="file" id="input-files" class="form-control-file border" />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col s12">
+        <div class="preview-images"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/js/add-post.js"></script> --

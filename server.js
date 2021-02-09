@@ -39,7 +39,8 @@ app.set(`view engine`, `handlebars`);
 // 	next();
 // });
 require(`./controllers/user-controller.js`)(app, db.sequelize);
-
+require(`./config/middleware/picLoader.js`)
+require(`./controllers/post-controller.js`)
 
 // import { createClient } from 'pexels';
 

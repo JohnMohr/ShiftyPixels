@@ -9,7 +9,7 @@ submitEl.addEventListener("click",(e)=>
         username: document.querySelector("#username-signup").value.trim(),
         email: document.querySelector("#email-signup").value.trim(),
         password: document.querySelector("#password-signup").value.trim(),
-        location: document.querySelector("#medium").value.trim(),
+        location: document.querySelector("#locate").value.trim(),
     }
     if (!userData.username || !userData.password || !userData.email || !userData.location) {
         return;
