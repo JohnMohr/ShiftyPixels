@@ -7,15 +7,6 @@ const PORT = process.env.PORT || 3001;
 const expressHandlebars = require(`express-handlebars`);
 const session = require('express-session');
 const db = require('./models')
-
-
-// All requests made with the client will be authenticated
-// const client = createClient('563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617');
-
-// const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// const hbs = exphb.create({ helpers });
-// const helpers = require('./utils/helpers');
-// const exphbs = require('express-handlebars');
 // const sequelize = require('./config-backup/connection');
 
 
@@ -31,19 +22,16 @@ app.engine(`handlebars`, expressHandlebars({ defaultLayout: `main` }));
 app.set(`view engine`, `handlebars`);
 
 
-
-
-// app.use((req, res, next) => {
-// 	res.locals.error = req.flash('error');
-// 	res.locals.success = req.flash('success');
-// 	next();
-// });
 require(`./controllers/user-controller.js`)(app, db.sequelize);
-
-
-// import { createClient } from 'pexels';
 
 
 db.sequelize.sync({ force: false }).then(() => {
 	app.listen(PORT, () => console.log(`Now listening on PORT ${PORT}`));
 });
+
+
+// const handlebars = expressHandlebars.create({ helpers });
+// const helpers = require('./utils/helpers');
+
+// ! PEXEL CLIENT - All requests made with the client will be authenticated !
+// const client = createClient('563492ad6f91700001000001bb5052fb7c7742528f8fb1620097f617');
