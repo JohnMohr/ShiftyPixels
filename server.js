@@ -2,9 +2,11 @@ const path = require('path');
 const express = require('express');
 const passport = require("./config/passport");
 
-const routes = require('./controllers/user-controller');
+
 const app = express();
 const PORT = process.env.PORT || 3001;
+const routes = require('./controllers/user-controller');
+// require(`./controllers/user-controller.js`)(app, db.sequelize);
 const expressHandlebars = require(`express-handlebars`);
 const session = require('express-session');
 const db = require('./models')
@@ -23,7 +25,7 @@ app.engine(`handlebars`, expressHandlebars({ defaultLayout: `main` }));
 app.set(`view engine`, `handlebars`);
 
 
-require(`./controllers/user-controller.js`)(app, db.sequelize);
+
 
 
 db.sequelize.sync({ force: false }).then(() => {
