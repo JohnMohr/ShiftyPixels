@@ -6,7 +6,7 @@ const passport = require("./config/passport");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const routes = require('./controllers/user-controller');
-require(`./controllers/user-controller.js`)(app, db.sequelize);
+// require(`./controllers/user-controller.js`)(app, db.sequelize);
 const expressHandlebars = require(`express-handlebars`);
 const session = require('express-session');
 const db = require('./models')
