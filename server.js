@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
-const passport = require("/config/passport");
-const routes = require('/controllers/user-controller');
+const passport = require("./config/passport");
+const routes = require('./controllers/user-controller');
 const app = express();
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 const expressHandlebars = require(`express-handlebars`);
 const session = require('express-session');
-const db = require('/models')
+const db = require('./models')
 
 
 // All requests made with the client will be authenticated
@@ -45,5 +45,5 @@ require(`./controllers/user-controller.js`)(app, db.sequelize);
 
 
 db.sequelize.sync({ force: false }).then(() => {
-	app.listen(PORT, () => console.log(`Now listening on PORT ${PORT}`));
+	app.listen(port, () => console.log(`Now listening on port ${PORT}`));
 });
