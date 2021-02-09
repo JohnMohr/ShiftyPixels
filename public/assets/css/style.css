@@ -21,17 +21,7 @@ background: dimgray;
     /* flex: 1 0 auto; */
   } 
 
-body {
-    padding-bottom: 10%;
-  }  
-  #shifty {
-    height: 3.8rem;
-    margin-top: 2%;
-  }
-#label {
-  height: 13rem;
-}
-/* .sb-main {
+main {
     padding-left: 300px;
   } */
 
