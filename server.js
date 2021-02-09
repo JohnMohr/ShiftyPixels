@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
-const passport = require("../config/passport");
-const routes = require('../controllers/user-controller');
+const passport = require("./config/passport");
+const routes = require('./controllers/user-controller');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const expressHandlebars = require(`express-handlebars`);
 const session = require('express-session');
-const db = require('../models')
+const db = require('./models')
 
 
 // All requests made with the client will be authenticated
@@ -21,8 +21,8 @@ const db = require('../models')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
-// app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
