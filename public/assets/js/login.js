@@ -27,13 +27,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 		}
 
-		// check the response status
-		// if (response.ok) {
-		// 	document.location.replace('/dashboard');
-		// } else {
-		// 	document.location.replace('/login');
-		// 	return;
-		// }
+		
 
 
 	})

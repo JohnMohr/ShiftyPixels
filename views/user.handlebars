@@ -1,11 +1,44 @@
 <main id="sb-main">
     {{> navbar }}
-    {{> sidenav }}
+    {{!-- {{> sidenav }} --}}
     {{> header }}
-    {{> imgupload }}
-    {{> usergall }}
-</main>
-<footer id="sb-footer" class="page-footer indigo lighten-3">
-    {{> footer }}
-</footer>
-<script src="./assets/js/landingScript.js"></script>
+    {{!-- {{> imgupload }} --}}
+    {{!-- {{> usergall }} --}}
+
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col s6 m6">
+                <div class="card-image">
+                    {{!-- <img class="responsive-img" src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2011/11/square-format-01.jpg?resize=600%2C600&ssl=1"> --}}
+                </div>
+                <div class="col s6 m6">
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="responsive-img" src="cool_pic.jpg">
+                            <div class="col s6 m6">
+                                <div class="card-panel teal">
+                                    <div class="card-content">
+                                        
+                                        <p class="card-text">Username </p>
+                                        <p class="card-text">Bio: </p>
+                                        <p class="card-text">Location:</p>
+                                        <span class="white-text"></span>
+                                    </div>
+                                    <br>
+                                    <a class="waves-effect waves-light btn" href= "/postit">Upload Image</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    </main>
+    <footer>
+        {{> footer }}
+    </footer>

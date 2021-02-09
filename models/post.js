@@ -1,42 +1,18 @@
 
-// module.exports = function (sequelize, DataTypes) {
-// 	var Post = sequelize.define('post', {
-// 		img_url: {
-// 			type: DataTypes.STRING,
-// 			allowNull: false,
-// 			validate: {
-// 				isUrl: true
-// 			}
-// 		},
-// 		// file name of image in Cloudinary, needed for deleting
-// 		public_id: {
-// 			type: DataTypes.STRING,
-// 			allowNull: false
-// 		},
-// 		user_id: {
-// 			type: DataTypes.INTEGER,
-// 			references: {
-// 				model: 'user',
-// 				key: 'id'
-// 			}
-// 		}
-// 	},
-// 		{
-// 			sequelize,
-// 			freezeTableName: true,
-// 			underscored: true,
-// 			modelName: 'post'
-// 		}
-
-// const { post } = require("jquery");
-
-// 	)
-// 	return Post;
-// };
 
 module.exports = function (sequelize, DataTypes) {
 	var Post = sequelize.define('post', {
-		img_url: {
+		username        : {
+			type          : DataTypes.INTEGER,
+			allowNull     : false,
+			primaryKey    : true,
+			autoIncrement : true
+		},
+		caption       : {
+			type      : DataTypes.STRING,
+			allowNull : false
+		},
+		image: {
 			type: DataTypes.STRING,
 			allowNull: false,
 			validate: {
@@ -45,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
 		}
 	});
 
-	Post.img_url = function (models) {
+	Post.image = function (models) {
 		// add associations here
 		post.belongsTo(models.user);
 		
