@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
-const passport = require("./config/passport");
-const routes = require('./controllers/user-controller');
+const passport = require("/config/passport");
+const routes = require('/controllers/user-controller');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const expressHandlebars = require(`express-handlebars`);
 const session = require('express-session');
-const db = require('./models')
+const db = require('/models')
 
 
 // All requests made with the client will be authenticated
@@ -38,7 +38,7 @@ app.set(`view engine`, `handlebars`);
 // 	res.locals.success = req.flash('success');
 // 	next();
 // });
-require(`../controllers/user-controller.js`)(app, db.sequelize);
+require(`./controllers/user-controller.js`)(app, db.sequelize);
 
 
 // import { createClient } from 'pexels';
